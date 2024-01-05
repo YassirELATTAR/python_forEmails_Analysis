@@ -3,13 +3,14 @@ import tkinter as tk
 from tkinter import filedialog
 from datetime import datetime
 
-
+#This functions allows you to select the folder
 def select_folder():
     root = tk.Tk()
     root.withdraw()
     folder_path = filedialog.askdirectory(title="Select Folder Containing .txt Files")
     return folder_path
 
+#This function merge txt files into one removing dublicates:
 def combine_files(directory):
     combined_content = set()
 
@@ -23,6 +24,7 @@ def combine_files(directory):
 
     return combined_content
 
+#This function writes the result in an output folder:
 def save_combined_content(combined_content, output_path):
     with open(output_path, 'w', encoding='utf-8') as output_file:
         output_file.write("\n".join(combined_content))
